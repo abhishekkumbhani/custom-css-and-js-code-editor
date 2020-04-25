@@ -4,7 +4,7 @@ A simple, lightweight WordPress plugin, allows you to add CSS and JS to your Wor
 
 This plugin is specifically crafted to meet the needs of administrators who would like to add their own CSS and JS to their WordPress website.  Styles and Javascript added with this plugin will render even if the theme is changed.
 
-### Features
+## Features
 
 - Add Custom CSS
 - Add Custom JS
@@ -15,7 +15,7 @@ This plugin is specifically crafted to meet the needs of administrators who woul
 - Built with simple native WordPress UI
 - No impact on site performance
 
-### Installation
+## Installation
 
 Install Custom CSS and JS Code Editor just as you would any other WP Plugin:
 
@@ -29,7 +29,7 @@ Install Custom CSS and JS Code Editor just as you would any other WP Plugin:
 
 5. Begin using the plugin by going to Appearance > Custom CSS / JS in the Admin Menu
 
-### Built With
+## Built With
 jQuery - A fast, small, and feature-rich JavaScript library <br>
 Code Mirror - A versatile text editor implemented in JavaScript for the browser. It is specialized for editing code, and comes with a number of language modes and addons that implement more advanced editing functionality.
 
@@ -44,16 +44,16 @@ Opera - version 9 and up
 
 Recent versions of the iOS browser and Chrome on Android should work pretty well.
 
-### Frequently Asked Questions
+## Frequently Asked Questions
 
 **Will this Plugin work on my WordPress.com website?**
 
 Sorry, this plugin is available for use only on self-hosted (WordPress.org) websites.
 
-### Versioning
+## Versioning
 For the versions available, see the releases in this <a href="https://github.com/abhishekkumbhani/custom-css-and-js-code-editor/releases">repository</a>.
 
-### Developers
+## Developers
 <a href="https://abhishekkumbhani.com/">Abhishek Kumbhani</a> - Lead Developer <br>
 <a href="https://monsterinfotech.com/">Parth Solanki</a> - Collaborator<br>
 <a href="https://gauravbhardva.com/">Gaurav Bhardva</a> - Collaborator<br>
@@ -61,9 +61,8 @@ For the versions available, see the releases in this <a href="https://github.com
 
 See also the <a href="https://github.com/abhishekkumbhani/custom-css-and-js-code-editor/graphs/contributors" target="_blank">list of contributors</a> who participated in this project.
 
-
-### License
+## License
 This project is licensed under the GPLv3 License.
 
-### Support
+## Support
 This is a developer's portal for Custom CSS and JS Code Editor and should not be used for support.
