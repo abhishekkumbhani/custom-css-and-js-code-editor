@@ -46,7 +46,7 @@ Recent versions of the iOS browser and Chrome on Android should work pretty well
 
 ### Frequently Asked Questions
 
-= Will this Plugin work on my WordPress.com website? =
+**Will this Plugin work on my WordPress.com website?**
 
 Sorry, this plugin is available for use only on self-hosted (WordPress.org) websites.
 
