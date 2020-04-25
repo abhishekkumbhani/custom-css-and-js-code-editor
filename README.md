@@ -15,7 +15,7 @@ This plugin is specifically crafted to meet the needs of administrators who woul
 - Built with simple native WordPress UI
 - No impact on site performance
 
-== Installation ==
+### Installation
 
 Install Custom CSS and JS Code Editor just as you would any other WP Plugin:
 
@@ -29,11 +29,11 @@ Install Custom CSS and JS Code Editor just as you would any other WP Plugin:
 
 5. Begin using the plugin by going to Appearance > Custom CSS / JS in the Admin Menu
 
-== Built With ==
+### Built With
 jQuery - A fast, small, and feature-rich JavaScript library
 Code Mirror - A versatile text editor implemented in JavaScript for the browser. It is specialized for editing code, and comes with a number of language modes and addons that implement more advanced editing functionality.
 
-== Browser support ==
+### Browser support
 The desktop versions of the following browsers, in standards mode (HTML5 <!doctype html> recommended) are supported:
 
 Firefox	- version 4 and up
@@ -44,16 +44,16 @@ Opera - version 9 and up
 
 Recent versions of the iOS browser and Chrome on Android should work pretty well.
 
-== Frequently Asked Questions ==
+### Frequently Asked Questions
 
 = Will this Plugin work on my WordPress.com website? =
 
 Sorry, this plugin is available for use only on self-hosted (WordPress.org) websites.
 
-== Versioning ==
+### Versioning
 For the versions available, see the releases in this <a href="https://github.com/abhishekkumbhani/custom-css-and-js-code-editor/releases">repository</a>.
 
-== Developers ==
+### Developers
 <a href="https://abhishekkumbhani.com/">Abhishek Kumbhani</a> - Lead Developer
 <a href="https://monsterinfotech.com/">Parth Solanki</a> - Collaborator
 <a href="https://gauravbhardva.com/">Gaurav Bhardva</a> - Collaborator
@@ -62,8 +62,8 @@ For the versions available, see the releases in this <a href="https://github.com
 See also the <a href="https://github.com/abhishekkumbhani/custom-css-and-js-code-editor/graphs/contributors" target="_blank">list of contributors</a> who participated in this project.
 
 
-== License ==
+### License
 This project is licensed under the GPLv3 License.
 
-== Support ==
+### Support
 This is a developer's portal for Custom CSS and JS Code Editor and should not be used for support.
