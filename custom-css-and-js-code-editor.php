@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name:       Custom CSS and JS Code Editor
- * Description:       A simple, lightweight WordPress plugin, allows you to add CSS and JS to your WordPress site with minification!.
+ * Description:       A simple, lightweight WordPress plugin, allows you to add CSS and JS to your WordPress site with minification.
  * Version:           1.0.0
  * Author:            Monster Infotech
  * Author URI:        https://monsterinfotech.com/
