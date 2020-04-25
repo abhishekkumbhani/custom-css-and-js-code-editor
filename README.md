@@ -30,7 +30,7 @@ Install Custom CSS and JS Code Editor just as you would any other WP Plugin:
 5. Begin using the plugin by going to Appearance > Custom CSS / JS in the Admin Menu
 
 ### Built With
-jQuery - A fast, small, and feature-rich JavaScript library
+jQuery - A fast, small, and feature-rich JavaScript library <br>
 Code Mirror - A versatile text editor implemented in JavaScript for the browser. It is specialized for editing code, and comes with a number of language modes and addons that implement more advanced editing functionality.
 
 ### Browser support
