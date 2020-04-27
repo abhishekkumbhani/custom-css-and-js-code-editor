@@ -61,5 +61,3 @@ require_once plugin_dir_path( MICCAJE_PLUGIN_FILE_URL ) . 'includes/admin-settin
 	* Plugin activation
 	*/ 
 require_once plugin_dir_path( MICCAJE_PLUGIN_FILE_URL ) . 'includes/set-options.php';
-
-
