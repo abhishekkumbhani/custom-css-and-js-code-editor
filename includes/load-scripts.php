@@ -160,16 +160,16 @@ if ( !function_exists( 'miccaje_plugin_admin_scripts' ) ) {
   * Genrate custom css file using
   */
   function miccaje_display_custom_css(){
-    $display_css = get_query_var('miccaje_custom_css');
-    if ($display_css == 'css'){
+    $get_query_string = get_query_var('miccaje_custom_css');
+    if ($get_query_string == 'css'){
         header("Content-type: text/css");
-        $custom_css = get_option('miccaje_css_editor_content');
+        $miccaje_custom_css = get_option('miccaje_css_editor_content');
 
         // Filters text content and strips out disallowed HTML
-        $custom_css = wp_kses( $custom_css, array( '\'', '\"' ) );
+        $miccaje_custom_css = wp_kses( $miccaje_custom_css, array( '\'', '\"' ) );
 
-        $custom_css = str_replace ( '&gt;' , '>' , $custom_css );
-        echo $custom_css;
+        $miccaje_custom_css = str_replace ( '&gt;' , '>' , $miccaje_custom_css );
+        echo $miccaje_custom_css;
         exit;
     }
   }
