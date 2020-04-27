@@ -124,7 +124,7 @@ if ( !function_exists( 'miccaje_plugin_admin_scripts' ) ) {
     		css_editor.setSize(null, 600);
     	} );';
 
-            // add inline script
+      // add inline script
 			if ( ! wp_script_is( 'jquery', 'done' ) ) {
 			 wp_enqueue_script( 'jquery' );
 			}
@@ -150,7 +150,8 @@ if ( !function_exists( 'miccaje_plugin_admin_scripts' ) ) {
   * Whitelist query variables before processing
   */
   function miccaje_add_wp_var($public_query_vars) {
-      $public_query_vars[] = 'miccaje_custom_css';
+      $public_query_vars[] = 'miccaje_css';
+      $public_query_vars[] = 'miccaje_js';
       return $public_query_vars;
   }
   add_filter('query_vars', 'miccaje_add_wp_var');
@@ -160,7 +161,7 @@ if ( !function_exists( 'miccaje_plugin_admin_scripts' ) ) {
   * Genrate custom css file using
   */
   function miccaje_display_custom_css(){
-    $get_query_string = get_query_var('miccaje_custom_css');
+    $get_query_string = get_query_var('miccaje_css');
     if ($get_query_string == 'css'){
         header("Content-type: text/css");
         $miccaje_custom_css = get_option('miccaje_css_editor_content');
@@ -182,11 +183,72 @@ if ( !function_exists( 'miccaje_plugin_admin_scripts' ) ) {
   function miccaje_add_custom_css(){
     $get_css = get_option('miccaje_css_editor_content');
     if ( !empty($get_css) && $get_css != '' ) {
-      $miccaje_base_url = site_url();
-      if ( is_ssl() ) {
-          $miccaje_css_base_url = site_url('/', 'https');
+      if ( function_exists('icl_object_id') ) {
+        $miccaje_base_url = site_url();
+        if ( is_ssl() ) {
+          $miccaje_base_url = site_url('/', 'https');
+        }
+      } else {
+        $miccaje_base_url = get_bloginfo('url');
+        if ( is_ssl() ) {
+          $miccaje_base_url = str_replace('http://', 'https://', $miccaje_base_url);
+        }
       }
-      wp_enqueue_style( 'miccaje-custom',  $miccaje_css_base_url . '/?miccaje_custom_css=css' );
+
+      $disabled_css = get_option('miccaje_editor_settings_disable_css');
+      // Check if disable or not
+      if ( empty( $disabled_css ) && $disabled_css == 0 ) {
+        wp_enqueue_style( 'miccaje-custom',  $miccaje_base_url . '/?miccaje_css=css' );
+      }
     }
   }
   add_action('wp_enqueue_scripts', 'miccaje_add_custom_css', 99999 );
+
+
+/**
+  * @since 1.0.0
+  * Genrate custom js file using
+  */
+  function miccaje_display_custom_js(){
+    $get_query_string = get_query_var('miccaje_js');
+    if ($get_query_string == 'js'){
+        header("Content-type: text/javascript");
+        $miccaje_custom_js = get_option('miccaje_js_editor_content');
+
+        // Filters text content and strips out disallowed HTML
+        $miccaje_custom_js = wp_kses( $miccaje_custom_js, array( '\'', '\"' ) );
+
+        $miccaje_custom_js = str_replace ( '&gt;' , '>' , $miccaje_custom_js );
+        echo $miccaje_custom_js;
+        exit;
+    }
+  }
+  add_action('template_redirect', 'miccaje_display_custom_js');
+
+  /**
+  * @since 1.0.0
+  * If not empty add custom css file in frontend 
+  */
+  function miccaje_add_custom_js(){
+    $get_css = get_option('miccaje_js_editor_content');
+    if ( !empty($get_css) && $get_css != '' ) {
+      if ( function_exists('icl_object_id') ) {
+        $miccaje_base_url = site_url();
+        if ( is_ssl() ) {
+          $miccaje_base_url = site_url('/', 'https');
+        }
+      } else {
+        $miccaje_base_url = get_bloginfo('url');
+        if ( is_ssl() ) {
+          $miccaje_base_url = str_replace('http://', 'https://', $miccaje_base_url);
+        }
+      }
+
+      $disabled_js = get_option('miccaje_editor_settings_disable_js');
+      // Check if disable or not
+      if ( empty( $disabled_js ) && $disabled_js == 0 ) {
+        wp_enqueue_script( 'miccaje-custom',  $miccaje_base_url . '/?miccaje_js=js' );
+      }
+    }
+  }
+  add_action('wp_enqueue_scripts', 'miccaje_add_custom_js', 99999 );
