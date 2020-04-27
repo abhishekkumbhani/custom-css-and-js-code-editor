@@ -5,6 +5,11 @@
  *
  */ 
 
+// Prevent direct file access
+if ( !defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 /**
 	* @since 1.0.0
 	* Register menu in admin

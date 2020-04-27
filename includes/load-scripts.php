@@ -6,6 +6,10 @@
  * Load Style and JS file in client side and admin side
  */ 
 
+// Prevent direct file access
+if ( !defined( 'ABSPATH' ) ) {
+  exit;
+}
 
 /**
 	* @since 1.0.0
