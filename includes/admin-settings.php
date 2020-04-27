@@ -25,7 +25,7 @@ if ( !function_exists( 'miccaje_settings_page_html' ) ) {
 		}
 		$miccaje_js_editor_content = get_option( 'miccaje_js_editor_content' );
 		if ( empty( $miccaje_js_editor_content ) ) {
-			$miccaje_js_editor_content = "/* Enter Your Custom JS Here */\n";
+			$miccaje_js_editor_content = "/* Enter Your Custom JavaScript Here */\n";
 		}
 
     ?>
@@ -95,6 +95,8 @@ if ( !function_exists( 'miccaje_css_js_editor_init' ) ) {
 
 	function miccaje_css_js_editor_init() {
 		// register setting
+	  register_setting('miccaje-editor-settings', 'miccaje_editor_settings_disable_css');
+	  register_setting('miccaje-editor-settings', 'miccaje_editor_settings_disable_js');
 	  register_setting('miccaje-css-editor', 'miccaje_css_editor_content');
 	  register_setting('miccaje-js-editor', 'miccaje_js_editor_content');
 	  register_setting('miccaje-editor-settings', 'miccaje_editor_settings_minify_css');
@@ -110,7 +112,9 @@ if ( !function_exists( 'miccaje_css_js_editor_init' ) ) {
 	  add_settings_section( 'miccaje_editor_settings', '', '', 'miccaje-editor-settings' );
 
 	  // add settings field
-	  add_settings_field( 'miccaje_editor_settings_minify_css', 'Minify CSS', 'miccaje_editor_settings_minify_css_cb', 'miccaje-editor-settings', 'miccaje_editor_settings' );
+	 	add_settings_field( 'miccaje_editor_settings_disable_css', 'Disable Custom CSS', 'miccaje_editor_settings_disable_css_cb', 'miccaje-editor-settings', 'miccaje_editor_settings' );
+	  add_settings_field( 'miccaje_editor_settings_disable_js', 'Disable Custom JS', 'miccaje_editor_settings_disable_js_cb', 'miccaje-editor-settings', 'miccaje_editor_settings' );
+	 	add_settings_field( 'miccaje_editor_settings_minify_css', 'Minify CSS', 'miccaje_editor_settings_minify_css_cb', 'miccaje-editor-settings', 'miccaje_editor_settings' );
 	  add_settings_field( 'miccaje_editor_settings_minify_js', 'Minify JS', 'miccaje_editor_settings_minify_js_cb', 'miccaje-editor-settings', 'miccaje_editor_settings' );
 	  add_settings_field( 'miccaje_editor_settings_word_wrap', 'Word Wrap', 'miccaje_editor_settings_word_wrap_cb', 'miccaje-editor-settings', 'miccaje_editor_settings' );
 	  add_settings_field( 'miccaje_editor_settings_font_size', 'Font Size', 'miccaje_editor_settings_font_size_cb', 'miccaje-editor-settings', 'miccaje_editor_settings' );
@@ -122,6 +126,22 @@ if ( !function_exists( 'miccaje_css_js_editor_init' ) ) {
 	}
 	add_action('admin_init', 'miccaje_css_js_editor_init');
 
+}
+
+// Disable CSS callback
+function miccaje_editor_settings_disable_css_cb() {
+  $miccaje_editor_settings_minify_js = get_option('miccaje_editor_settings_disable_css');
+  ?>
+  <input type="checkbox" name="miccaje_editor_settings_disable_css" value="1" <?php echo checked( 1, $miccaje_editor_settings_minify_js, false ); ?>/>
+  <?php
+}
+
+// Disable JS callback
+function miccaje_editor_settings_disable_js_cb() {
+  $miccaje_editor_settings_minify_js = get_option('miccaje_editor_settings_disable_js');
+  ?>
+  <input type="checkbox" name="miccaje_editor_settings_disable_js" value="1" <?php echo checked( 1, $miccaje_editor_settings_minify_js, false ); ?>/>
+  <?php
 }
 
 // Minify CSS callback
