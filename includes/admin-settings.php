@@ -169,8 +169,11 @@ function miccaje_editor_settings_tab_size_cb() {
   $miccaje_editor_settings_tab_size = get_option('miccaje_editor_settings_tab_size');
   ?>
   <select name="miccaje_editor_settings_tab_size">
+	  <option value="1" <?php selected(get_option('miccaje_editor_settings_tab_size'), "1"); ?>>1</option>
 	  <option value="2" <?php selected(get_option('miccaje_editor_settings_tab_size'), "2"); ?>>2</option>
+	  <option value="3" <?php selected(get_option('miccaje_editor_settings_tab_size'), "3"); ?>>3</option>
 	  <option value="4" <?php selected(get_option('miccaje_editor_settings_tab_size'), "4"); ?>>4</option>
+	  <option value="5" <?php selected(get_option('miccaje_editor_settings_tab_size'), "5"); ?>>5</option>
 	</select>
   <?php
 }
