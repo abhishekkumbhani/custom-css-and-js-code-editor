@@ -72,6 +72,10 @@ if ( !function_exists( 'miccaje_plugin_admin_scripts' ) ) {
       if ( empty( $editor_line_height ) ) {
       	$editor_line_height = '1.5';
       }
+      $editor_direction = get_option('miccaje_editor_settings_direction');
+      if ( empty( $editor_direction ) ) {
+        $editor_direction = 'ltr';
+      }
 
     	// add inline style
     	$editor_style = '
@@ -96,9 +100,10 @@ if ( !function_exists( 'miccaje_plugin_admin_scripts' ) ) {
     			mode: "css",
     			autoCloseBrackets: true,
     			styleActiveLine: true,
+          direction: "'.$editor_direction.'",
     			theme: '.$editor_theme.',
     		});
-    		css_editor.setSize(null, 500);
+    		css_editor.setSize(null, 600);
     	} );';
 
     	$js_script = 'jQuery( document ).ready( function() {
@@ -113,9 +118,10 @@ if ( !function_exists( 'miccaje_plugin_admin_scripts' ) ) {
     			mode: "javascript",
     			autoCloseBrackets: true,
     			styleActiveLine: true,
+          direction: "'.$editor_direction.'",
     			theme: '.$editor_theme.',
     		});
-    		css_editor.setSize(null, 500);
+    		css_editor.setSize(null, 600);
     	} );';
 
       // add inline script
