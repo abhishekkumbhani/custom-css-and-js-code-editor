@@ -21,7 +21,7 @@ if ( !function_exists( 'miccaje_admin_menu' ) ) {
 		add_submenu_page(
         'themes.php',
         'Custom CSS and JS Editor',
-        'CSS and JS Editor',
+        'Custom CSS / JS',
         'manage_options',
         'miccaje-settings',
         'miccaje_settings_page_html'
