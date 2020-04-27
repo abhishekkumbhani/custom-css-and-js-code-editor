@@ -21,11 +21,11 @@ if ( !function_exists( 'miccaje_settings_page_html' ) ) {
 		
 		$miccaje_css_editor_content = get_option( 'miccaje_css_editor_content' );
 		if ( empty( $miccaje_css_editor_content ) ) {
-			$miccaje_css_editor_content = "/* Enter Your Custom CSS Here */";
+			$miccaje_css_editor_content = "/* Enter Your Custom CSS Here */\n";
 		}
 		$miccaje_js_editor_content = get_option( 'miccaje_js_editor_content' );
 		if ( empty( $miccaje_js_editor_content ) ) {
-			$miccaje_js_editor_content = "/* Enter Your Custom JS Here */";
+			$miccaje_js_editor_content = "/* Enter Your Custom JS Here */\n";
 		}
 
     ?>
@@ -51,14 +51,14 @@ if ( !function_exists( 'miccaje_settings_page_html' ) ) {
 		        		settings_fields( 'miccaje-css-editor' );
 		            ?>
 		            <div class="css-editor">
-									<textarea name="miccaje_css_editor_content" class="css-js-editor" id="miccaje_css_editor_content"><?php echo esc_html( $miccaje_css_editor_content ); ?></textarea>
+									<textarea name="miccaje_css_editor_content" class="css-js-editor" id="miccaje_css_editor_content" style="display: none;"><?php echo esc_html( $miccaje_css_editor_content ); ?></textarea>
 								</div>
 		            <?php
 			        } else if( $active_tab == 'js-editor' ) {
 			        	settings_fields( 'miccaje-js-editor' );
 			        	?>
 			        	<div class="js-editor">
-			        		<textarea name="miccaje_js_editor_content" class="css-js-editor" id="miccaje_js_editor_content"><?php echo esc_html( $miccaje_js_editor_content ); ?></textarea>
+			        		<textarea name="miccaje_js_editor_content" class="css-js-editor" id="miccaje_js_editor_content" style="display: none;"><?php echo esc_html( $miccaje_js_editor_content ); ?></textarea>
 			        	</div>
 			        	<?php
 			        } else {
@@ -69,7 +69,15 @@ if ( !function_exists( 'miccaje_settings_page_html' ) ) {
 			        }
 		        ?>
 
-		        <?php submit_button( __( 'Save Settings', 'custom-css-and-js-editor' ), 'primary button-large' ); ?>
+		        <?php 
+		        	if( $active_tab == 'css-editor' ) {
+		        		submit_button( __( 'Update Custom CSS', 'custom-css-and-js-editor' ), 'primary button-large' );
+		        	} else if( $active_tab == 'js-editor' ) {
+		        		submit_button( __( 'Update Custom JS', 'custom-css-and-js-editor' ), 'primary button-large' );
+		        	} else {
+		        		submit_button( __( 'Save Settings', 'custom-css-and-js-editor' ), 'primary button-large' );
+		        	}
+		        ?>
 	  		</div>
   		</form>
     </div>
@@ -95,6 +103,7 @@ if ( !function_exists( 'miccaje_css_js_editor_init' ) ) {
 	  register_setting('miccaje-editor-settings', 'miccaje_editor_settings_font_size');
 	  register_setting('miccaje-editor-settings', 'miccaje_editor_settings_line_height');
 	  register_setting('miccaje-editor-settings', 'miccaje_editor_settings_tab_size');
+	  register_setting('miccaje-editor-settings', 'miccaje_editor_settings_direction');
 	  register_setting('miccaje-editor-settings', 'miccaje_editor_settings_theme');
 
 	  // add settings section
@@ -107,6 +116,7 @@ if ( !function_exists( 'miccaje_css_js_editor_init' ) ) {
 	  add_settings_field( 'miccaje_editor_settings_font_size', 'Font Size', 'miccaje_editor_settings_font_size_cb', 'miccaje-editor-settings', 'miccaje_editor_settings' );
 	  add_settings_field( 'miccaje_editor_settings_line_height', 'Line Height', 'miccaje_editor_settings_line_height_cb', 'miccaje-editor-settings', 'miccaje_editor_settings' );
 	  add_settings_field( 'miccaje_editor_settings_tab_size', 'Tab Size', 'miccaje_editor_settings_tab_size_cb', 'miccaje-editor-settings', 'miccaje_editor_settings' );
+	  add_settings_field( 'miccaje_editor_settings_direction', 'Multilingual Direction', 'miccaje_editor_settings_direction_cb', 'miccaje-editor-settings', 'miccaje_editor_settings' );
 	  add_settings_field( 'miccaje_editor_settings_theme', 'Theme', 'miccaje_editor_settings_theme_cb', 'miccaje-editor-settings', 'miccaje_editor_settings' );
 
 	}
@@ -161,6 +171,17 @@ function miccaje_editor_settings_tab_size_cb() {
   <select name="miccaje_editor_settings_tab_size">
 	  <option value="2" <?php selected(get_option('miccaje_editor_settings_tab_size'), "2"); ?>>2</option>
 	  <option value="4" <?php selected(get_option('miccaje_editor_settings_tab_size'), "4"); ?>>4</option>
+	</select>
+  <?php
+}
+
+// Multilingual LTR/RTL direction callback
+function miccaje_editor_settings_direction_cb() {
+  $miccaje_editor_settings_tab_size = get_option('miccaje_editor_settings_direction');
+  ?>
+  <select name="miccaje_editor_settings_direction">
+	  <option value="ltr" <?php selected(get_option('miccaje_editor_settings_direction'), "ltr"); ?>>LTR</option>
+	  <option value="rtl" <?php selected(get_option('miccaje_editor_settings_direction'), "rtl"); ?>>RTL</option>
 	</select>
   <?php
 }
