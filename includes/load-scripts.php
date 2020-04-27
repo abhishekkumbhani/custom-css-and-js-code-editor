@@ -124,7 +124,7 @@ if ( !function_exists( 'miccaje_plugin_admin_scripts' ) ) {
     		css_editor.setSize(null, 600);
     	} );';
 
-      // add inline script
+            // add inline script
 			if ( ! wp_script_is( 'jquery', 'done' ) ) {
 			 wp_enqueue_script( 'jquery' );
 			}
@@ -140,8 +140,53 @@ if ( !function_exists( 'miccaje_plugin_admin_scripts' ) ) {
 					$js_script 
 				);
 			}
-    }
+        }
 	}
 	add_action('admin_enqueue_scripts', 'miccaje_plugin_admin_scripts');
-
 }
+
+/**
+  * @since 1.0.0
+  * Whitelist query variables before processing
+  */
+  function miccaje_add_wp_var($public_query_vars) {
+      $public_query_vars[] = 'miccaje_custom_css';
+      return $public_query_vars;
+  }
+  add_filter('query_vars', 'miccaje_add_wp_var');
+
+/**
+  * @since 1.0.0
+  * Genrate custom css file using
+  */
+  function miccaje_display_custom_css(){
+    $display_css = get_query_var('miccaje_custom_css');
+    if ($display_css == 'css'){
+        header("Content-type: text/css");
+        $custom_css = get_option('miccaje_css_editor_content');
+
+        // Filters text content and strips out disallowed HTML
+        $custom_css = wp_kses( $custom_css, array( '\'', '\"' ) );
+
+        $custom_css = str_replace ( '&gt;' , '>' , $custom_css );
+        echo $custom_css;
+        exit;
+    }
+  }
+  add_action('template_redirect', 'miccaje_display_custom_css');
+
+/**
+  * @since 1.0.0
+  * If not empty add custom css file in frontend 
+  */
+  function miccaje_add_custom_css(){
+    $get_css = get_option('miccaje_css_editor_content');
+    if ( !empty($get_css) && $get_css != '' ) {
+      $miccaje_base_url = site_url();
+      if ( is_ssl() ) {
+          $miccaje_css_base_url = site_url('/', 'https');
+      }
+      wp_enqueue_style( 'miccaje-custom',  $miccaje_css_base_url . '/?miccaje_custom_css=css' );
+    }
+  }
+  add_action('wp_enqueue_scripts', 'miccaje_add_custom_css', 99999 );
