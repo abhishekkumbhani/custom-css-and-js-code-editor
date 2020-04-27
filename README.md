@@ -19,14 +19,10 @@ This plugin is specifically crafted to meet the needs of administrators who woul
 
 Install Custom CSS and JS Editor just as you would any other WP Plugin:
 
-1. [Download Custom CSS and JS Editor](URL PASTE HERE "Custom CSS and JS Editor") from WordPress.org.
-
+1. Download Custom CSS and JS Editor from WordPress.org.
 2. Unzip the .zip file.
-
 3. Upload the Plugin folder (custom-css-and-js-code-editor/) to the wp-content/plugins folder.
-
 4. Activate the Plugin.
-
 5. Begin using the plugin by going to Appearance > Custom CSS / JS in the Admin Menu
 
 ## Built With
