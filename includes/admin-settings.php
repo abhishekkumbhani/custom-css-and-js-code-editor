@@ -6,6 +6,11 @@
  * All Custom CSS and JS Code Editor settings are here
  */ 
 
+// Prevent direct file access
+if ( !defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 /**
 	* @since 1.0.0
 	* Generate setting page HTML

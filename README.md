@@ -1,4 +1,4 @@
-# WordPress Custom CSS and JS Code Editor
+# WordPress Custom CSS and JS Editor
 
 A simple, lightweight WordPress plugin, allows you to add CSS and JS to your WordPress site with minification. This plugin allows you to add custom site-wide CSS styles and JavaScript code to your WordPress site. Useful for overriding your theme's styles and adding client-side functionality.
 
@@ -17,16 +17,12 @@ This plugin is specifically crafted to meet the needs of administrators who woul
 
 ## Installation
 
-Install Custom CSS and JS Code Editor just as you would any other WP Plugin:
+Install Custom CSS and JS Editor just as you would any other WP Plugin:
 
-1. [Download Custom CSS and JS Code Editor](URL PASTE HERE "Custom CSS and JS Code Editor") from WordPress.org.
-
+1. Download Custom CSS and JS Editor from WordPress.org.
 2. Unzip the .zip file.
-
 3. Upload the Plugin folder (custom-css-and-js-code-editor/) to the wp-content/plugins folder.
-
 4. Activate the Plugin.
-
 5. Begin using the plugin by going to Appearance > Custom CSS / JS in the Admin Menu
 
 ## Built With
@@ -65,4 +61,4 @@ See also the <a href="https://github.com/abhishekkumbhani/custom-css-and-js-code
 This project is licensed under the GPLv3 License.
 
 ## Support
-This is a developer's portal for Custom CSS and JS Code Editor and should not be used for support.
+This is a developer's portal for Custom CSS and JS Editor and should not be used for support.
