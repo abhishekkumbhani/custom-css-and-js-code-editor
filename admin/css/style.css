@@ -1,0 +1,17 @@
+/**
+ * All of the CSS code
+ */
+
+/* Setting Page Style */
+.miccaje_form .css-editor,
+.miccaje_form .js-editor {
+	margin-top: 20px;
+	font-size: 16px;
+	line-height: 1.5;
+}
+.miccaje_form .miccaje-white-box {
+	background: #fff;
+	padding: 10px 30px;
+	border: 1px solid lightgray;
+	border-top: 0;
+}
