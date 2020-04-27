@@ -32,10 +32,10 @@ Install Custom CSS and JS Editor just as you would any other WP Plugin:
 ### Browser support
 The desktop versions of the following browsers, in standards mode (HTML5 <!doctype html> recommended) are supported:
 
-Firefox	- version 4 and up
-Chrome - any version
-Safari - version 5.2 and up
-Internet Explorer/Edge - version 8 and up
+Firefox	- version 4 and up<br>
+Chrome - any version<br>
+Safari - version 5.2 and up<br>
+Internet Explorer/Edge - version 8 and up<br>
 Opera - version 9 and up
 
 Recent versions of the iOS browser and Chrome on Android should work pretty well.
