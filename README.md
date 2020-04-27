@@ -19,15 +19,15 @@ This plugin is specifically crafted to meet the needs of administrators who woul
 
 Install Custom CSS and JS Editor just as you would any other WP Plugin:
 
-1. Download Custom CSS and JS Editor from WordPress.org.
+1. Download 'Custom CSS and JS Editor' plugin from WordPress.org.
 2. Unzip the .zip file.
-3. Upload the Plugin folder (custom-css-and-js-code-editor/) to the wp-content/plugins folder.
+3. Upload the Plugin folder (custom-css-and-js-editor/) to the wp-content/plugins folder.
 4. Activate the Plugin.
-5. Begin using the plugin by going to Appearance > Custom CSS / JS in the Admin Menu
+5. Begin using the plugin by going to Appearance > CSS and JS Editor in the Admin Menu
 
 ## Built With
-jQuery - A fast, small, and feature-rich JavaScript library <br>
-Code Mirror - A versatile text editor implemented in JavaScript for the browser. It is specialized for editing code, and comes with a number of language modes and addons that implement more advanced editing functionality.
+<a href="https://jquery.com/" target="_blank">jQuery</a> - A fast, small, and feature-rich JavaScript library <br>
+<a href="https://codemirror.net/" target="_blank">Code Mirror</a> - A versatile text editor implemented in JavaScript for the browser. It is specialized for editing code, and comes with a number of language modes and addons that implement more advanced editing functionality.
 
 ### Browser support
 The desktop versions of the following browsers, in standards mode (HTML5 <!doctype html> recommended) are supported:
