@@ -104,7 +104,7 @@ if ( !function_exists( 'miccaje_plugin_admin_scripts' ) ) {
     			theme: '.$editor_theme.',
     		});
     		css_editor.setSize(null, 600);
-    	} );';
+    	});';
 
     	$js_script = 'jQuery( document ).ready( function() {
     		var css_editor = CodeMirror.fromTextArea(document.getElementById( "miccaje_js_editor_content" ), {
@@ -122,7 +122,7 @@ if ( !function_exists( 'miccaje_plugin_admin_scripts' ) ) {
     			theme: '.$editor_theme.',
     		});
     		css_editor.setSize(null, 600);
-    	} );';
+    	});';
 
       // add inline script
 			if ( ! wp_script_is( 'jquery', 'done' ) ) {
