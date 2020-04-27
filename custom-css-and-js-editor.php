@@ -15,7 +15,7 @@
  * @package           Custom_CSS_And_JS_Editor
  */
 
-// Exit if accessed directly
+// Prevent direct file access
 if ( !defined( 'ABSPATH' ) ) {
 	exit;
 }
