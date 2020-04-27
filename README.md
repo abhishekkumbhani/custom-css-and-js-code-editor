@@ -23,7 +23,7 @@ Install Custom CSS and JS Editor just as you would any other WP Plugin:
 2. Unzip the .zip file.
 3. Upload the Plugin folder (custom-css-and-js-editor/) to the wp-content/plugins folder.
 4. Activate the Plugin.
-5. Begin using the plugin by going to Appearance > CSS and JS Editor in the Admin Menu
+5. Begin using the plugin by going to `Appearance > Custom CSS / JS` in the Admin Menu
 
 ## Built With
 <a href="https://jquery.com/" target="_blank">jQuery</a> - A fast, small, and feature-rich JavaScript library <br>
