@@ -231,7 +231,7 @@ if ( !function_exists( 'miccaje_plugin_admin_scripts' ) ) {
   */
   function miccaje_add_custom_js(){
     $get_css = get_option('miccaje_js_editor_content');
-    if ( !empty($get_css) && $get_css != '' ) {
+    if ( !empty($get_css) || $get_css != '' ) {
       if ( function_exists('icl_object_id') ) {
         $miccaje_base_url = site_url();
         if ( is_ssl() ) {
@@ -244,10 +244,20 @@ if ( !function_exists( 'miccaje_plugin_admin_scripts' ) ) {
         }
       }
 
+      // Wheather to load JS in header or Footer
+      $load_in_footer = get_option('miccaje_editor_settings_js_in_footer');
+      if( $load_in_footer == 0 ) {
+        $load_in_footer == false;
+      } else if ( $load_in_footer == 1 ) {
+        $load_in_footer == true;
+      } else {
+        $load_in_footer == true;
+      }
+
       $disabled_js = get_option('miccaje_editor_settings_disable_js');
       // Check if disable or not
       if ( empty( $disabled_js ) && $disabled_js == 0 ) {
-        wp_enqueue_script( 'miccaje-custom',  $miccaje_base_url . '/?miccaje_js=js' );
+        wp_enqueue_script( 'miccaje-custom',  $miccaje_base_url . '/?miccaje_js=js', array(), false, $load_in_footer );
       }
     }
   }

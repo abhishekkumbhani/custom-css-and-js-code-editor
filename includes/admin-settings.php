@@ -101,6 +101,7 @@ if ( !function_exists( 'miccaje_css_js_editor_init' ) ) {
 	  register_setting('miccaje-js-editor', 'miccaje_js_editor_content');
 	  register_setting('miccaje-editor-settings', 'miccaje_editor_settings_minify_css');
 	  register_setting('miccaje-editor-settings', 'miccaje_editor_settings_minify_js');
+	  register_setting('miccaje-editor-settings', 'miccaje_editor_settings_js_in_footer');
 	  register_setting('miccaje-editor-settings', 'miccaje_editor_settings_word_wrap');
 	  register_setting('miccaje-editor-settings', 'miccaje_editor_settings_font_size');
 	  register_setting('miccaje-editor-settings', 'miccaje_editor_settings_line_height');
@@ -116,6 +117,7 @@ if ( !function_exists( 'miccaje_css_js_editor_init' ) ) {
 	  add_settings_field( 'miccaje_editor_settings_disable_js', 'Disable Custom JS', 'miccaje_editor_settings_disable_js_cb', 'miccaje-editor-settings', 'miccaje_editor_settings' );
 	 	add_settings_field( 'miccaje_editor_settings_minify_css', 'Minify CSS', 'miccaje_editor_settings_minify_css_cb', 'miccaje-editor-settings', 'miccaje_editor_settings' );
 	  add_settings_field( 'miccaje_editor_settings_minify_js', 'Minify JS', 'miccaje_editor_settings_minify_js_cb', 'miccaje-editor-settings', 'miccaje_editor_settings' );
+	  add_settings_field( 'miccaje_editor_settings_js_in_footer', 'Load JavaScript In', 'miccaje_editor_settings_js_in_footer_cb', 'miccaje-editor-settings', 'miccaje_editor_settings' );
 	  add_settings_field( 'miccaje_editor_settings_word_wrap', 'Word Wrap', 'miccaje_editor_settings_word_wrap_cb', 'miccaje-editor-settings', 'miccaje_editor_settings' );
 	  add_settings_field( 'miccaje_editor_settings_font_size', 'Font Size', 'miccaje_editor_settings_font_size_cb', 'miccaje-editor-settings', 'miccaje_editor_settings' );
 	  add_settings_field( 'miccaje_editor_settings_line_height', 'Line Height', 'miccaje_editor_settings_line_height_cb', 'miccaje-editor-settings', 'miccaje_editor_settings' );
@@ -157,6 +159,17 @@ function miccaje_editor_settings_minify_js_cb() {
   $miccaje_editor_settings_minify_js = get_option('miccaje_editor_settings_minify_js');
   ?>
   <input type="checkbox" name="miccaje_editor_settings_minify_js" value="1" <?php echo checked( 1, $miccaje_editor_settings_minify_js, false ); ?>/>
+  <?php
+}
+
+// Load JS In Header or Footer callback
+function miccaje_editor_settings_js_in_footer_cb() {
+  $miccaje_editor_settings_tab_size = get_option('miccaje_editor_settings_js_in_footer');
+  ?>
+  <select name="miccaje_editor_settings_js_in_footer">
+	  <option value="0" <?php selected(get_option('miccaje_editor_settings_js_in_footer'), "0"); ?>>Header</option>
+	  <option value="1" <?php selected(get_option('miccaje_editor_settings_js_in_footer'), "1"); ?>>Footer</option>
+	</select>
   <?php
 }
 
