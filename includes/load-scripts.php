@@ -11,6 +11,20 @@ if ( !defined( 'ABSPATH' ) ) {
   exit;
 }
 
+// add minify css and js library
+$path = plugin_dir_path( MICCAJE_PLUGIN_FILE_URL ) . 'includes';
+require_once $path . '/minify/src/Minify.php';
+require_once $path . '/minify/src/CSS.php';
+require_once $path . '/minify/src/JS.php';
+require_once $path . '/minify/src/Exception.php';
+require_once $path . '/minify/src/Exceptions/BasicException.php';
+require_once $path . '/minify/src/Exceptions/FileImportException.php';
+require_once $path . '/minify/src/Exceptions/IOException.php';
+require_once $path . '/minify/src/ConverterInterface.php';
+require_once $path . '/minify/src/Converter.php';
+
+use MatthiasMullie\Minify;
+
 /**
 	* @since 1.0.0
 	* Load style and script in client side
@@ -163,15 +177,25 @@ if ( !function_exists( 'miccaje_plugin_admin_scripts' ) ) {
   function miccaje_display_custom_css(){
     $get_query_string = get_query_var('miccaje_css');
     if ($get_query_string == 'css'){
-        header("Content-type: text/css");
-        $miccaje_custom_css = get_option('miccaje_css_editor_content');
+      header("Content-type: text/css");
+      $miccaje_custom_css = get_option('miccaje_css_editor_content');
 
-        // Filters text content and strips out disallowed HTML
-        $miccaje_custom_css = wp_kses( $miccaje_custom_css, array( '\'', '\"' ) );
+      // Filters text content and strips out disallowed HTML
+      $miccaje_custom_css = wp_kses( $miccaje_custom_css, array( '\'', '\"' ) );
 
-        $miccaje_custom_css = str_replace ( '&gt;' , '>' , $miccaje_custom_css );
+      $miccaje_custom_css = str_replace ( '&gt;' , '>' , $miccaje_custom_css );
+
+      // Check minify css is enable or not
+      $miccaje_minify_custom_css = get_option('miccaje_editor_settings_minify_css');
+      if ( !empty($miccaje_minify_custom_css) && $miccaje_minify_custom_css == '1' ) {
+        // minify css
+        $minifier = new Minify\CSS($miccaje_custom_css);
+        echo $minifier->minify();
+      } else {
+        // unminify css
         echo $miccaje_custom_css;
-        exit;
+      }
+      exit;
     }
   }
   add_action('template_redirect', 'miccaje_display_custom_css');
@@ -219,7 +243,17 @@ if ( !function_exists( 'miccaje_plugin_admin_scripts' ) ) {
         $miccaje_custom_js = wp_kses( $miccaje_custom_js, array( '\'', '\"' ) );
 
         $miccaje_custom_js = str_replace ( '&gt;' , '>' , $miccaje_custom_js );
-        echo $miccaje_custom_js;
+
+        // Check minify js is enable or not
+        $miccaje_minify_custom_js = get_option('miccaje_editor_settings_minify_js');
+        if ( !empty($miccaje_minify_custom_js) && $miccaje_minify_custom_js == '1' ) {
+          // minify js
+          $minifier = new Minify\JS($miccaje_custom_js);
+          echo $minifier->minify();
+        } else {
+          // unminify js
+          echo $miccaje_custom_js;
+        }
         exit;
     }
   }
