@@ -41,8 +41,8 @@ if ( !function_exists( 'miccaje_settings_page_html' ) ) {
 		      ?>
 		       
 		      <h2 class="nav-tab-wrapper">
-		        <a href="?page=miccaje-settings&tab=css-editor" class="nav-tab <?php echo $active_tab == 'css-editor' ? 'nav-tab-active' : ''; ?>">CSS Editor</a>
-		        <a href="?page=miccaje-settings&tab=js-editor" class="nav-tab <?php echo $active_tab == 'js-editor' ? 'nav-tab-active' : ''; ?>">JS Editor</a>
+		        <a href="?page=miccaje-settings&tab=css-editor" class="nav-tab <?php echo $active_tab == 'css-editor' ? 'nav-tab-active' : ''; ?>">Custom CSS</a>
+		        <a href="?page=miccaje-settings&tab=js-editor" class="nav-tab <?php echo $active_tab == 'js-editor' ? 'nav-tab-active' : ''; ?>">Custom JavaScript</a>
 		        <a href="?page=miccaje-settings&tab=editor-settings" class="nav-tab <?php echo $active_tab == 'editor-settings' ? 'nav-tab-active' : ''; ?>">Editor Settings</a>
 		      </h2>
 
@@ -51,6 +51,7 @@ if ( !function_exists( 'miccaje_settings_page_html' ) ) {
 		        		settings_fields( 'miccaje-css-editor' );
 		            ?>
 		            <div class="css-editor">
+		            	<p><label>Enter your custom CSS here - no need to add &lt;style&gt;&lt;/style&gt;.</label></p>
 									<textarea name="miccaje_css_editor_content" class="css-js-editor" id="miccaje_css_editor_content" style="display: none;"><?php echo esc_html( $miccaje_css_editor_content ); ?></textarea>
 								</div>
 		            <?php
@@ -58,6 +59,7 @@ if ( !function_exists( 'miccaje_settings_page_html' ) ) {
 			        	settings_fields( 'miccaje-js-editor' );
 			        	?>
 			        	<div class="js-editor">
+			        		<p><label>Enter your custom JS here - no need to add &lt;script&gt;&lt;/script&gt;.</label></p>
 			        		<textarea name="miccaje_js_editor_content" class="css-js-editor" id="miccaje_js_editor_content" style="display: none;"><?php echo esc_html( $miccaje_js_editor_content ); ?></textarea>
 			        	</div>
 			        	<?php

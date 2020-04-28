@@ -15,3 +15,8 @@
 	border: 1px solid lightgray;
 	border-top: 0;
 }
+
+.miccaje_form .css-editor p label,
+.miccaje_form .js-editor p label {
+	font-weight: bold;
+}
