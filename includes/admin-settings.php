@@ -41,8 +41,8 @@ if ( !function_exists( 'miccaje_settings_page_html' ) ) {
 		      ?>
 		       
 		      <h2 class="nav-tab-wrapper">
-		        <a href="?page=miccaje-settings&tab=css-editor" class="nav-tab <?php echo $active_tab == 'css-editor' ? 'nav-tab-active' : ''; ?>">CSS Editor</a>
-		        <a href="?page=miccaje-settings&tab=js-editor" class="nav-tab <?php echo $active_tab == 'js-editor' ? 'nav-tab-active' : ''; ?>">JS Editor</a>
+		        <a href="?page=miccaje-settings&tab=css-editor" class="nav-tab <?php echo $active_tab == 'css-editor' ? 'nav-tab-active' : ''; ?>">Custom CSS</a>
+		        <a href="?page=miccaje-settings&tab=js-editor" class="nav-tab <?php echo $active_tab == 'js-editor' ? 'nav-tab-active' : ''; ?>">Custom JavaScript</a>
 		        <a href="?page=miccaje-settings&tab=editor-settings" class="nav-tab <?php echo $active_tab == 'editor-settings' ? 'nav-tab-active' : ''; ?>">Editor Settings</a>
 		      </h2>
 
